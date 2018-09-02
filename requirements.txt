@@ -1,0 +1,5 @@
+#Install header file ,  For UBUNTU : sudo sasl2-dev python-dev libldap2-dev libssl-dev
+django==2.1
+python-ldap
+django-auth-ldap
+django-python3-ldap
