@@ -33,7 +33,7 @@ def user_login(request):
         AUTH_LDAP_USER_SEARCH = LDAPSearch("ou=stud-offices,ou=stud,dc=iitg,dc=ernet,dc=in",
 ldap.SCOPE_SUBTREE, "(uid=%(user)s)")
 
-        print(AUTH_LDAP_USER_SEARCH)
+        print(AUTH_LDAP_USER_SEARCH.attrlist)
 
         return HttpResponse(" Cheking username!")
 
