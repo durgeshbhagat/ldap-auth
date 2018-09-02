@@ -25,7 +25,7 @@ AUTH_LDAP_CONNECTION_OPTIONS = {
 
 AUTH_LDAP_BIND_DN = "swc"
 AUTH_LDAP_BIND_PASSWORD = "India$Rising"
-AUTH_LDAP_USER_SEARCH = LDAPSearch("ou=stud,dc=iitg,dc=ernet,dc=in",
+AUTH_LDAP_USER_SEARCH = LDAPSearch("ou=stud-offices,ou=stud,dc=iitg,dc=ernet,dc=in",
 ldap.SCOPE_SUBTREE, "(uid=%(user)s)")
 AUTHENTICATION_BACKENDS = [
     'django_auth_ldap.backend.LDAPBackend',
