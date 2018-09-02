@@ -35,6 +35,7 @@ ldap.SCOPE_SUBTREE, "(uid=%(user)s)")
 
         print(AUTH_LDAP_USER_SEARCH)
 
+        return HttpResponse(" Cheking username!")
 
         """
         user = authenticate(username=username, password=password)
