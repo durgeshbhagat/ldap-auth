@@ -5,6 +5,8 @@ import ldap
 from django_auth_ldap.config import LDAPSearch
 
 
+#ldapsearch -H ldaps://202.141.81.3:636 -D "uid=swc,ou=stud-offices,ou=stud,dc=iitg,dc=ernet,dc=in" -w 'India$Rising' -b "dc=iitg,dc=ernet,dc=in" -s sub "uid=swc" -LLL dn
+
 AUTH_LDAP_SERVER_URI = "ldaps://202.141.81.3:636"
 AUTH_LDAP_CONNECTION_OPTIONS = {
     ldap.OPT_REFERRALS: 0
@@ -32,7 +34,7 @@ def user_login(request):
 ldap.SCOPE_SUBTREE, "(uid=%(user)s)")
 
         print(AUTH_LDAP_USER_SEARCH)
-         
+
 
         """
         user = authenticate(username=username, password=password)
