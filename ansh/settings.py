@@ -18,7 +18,7 @@ from django_auth_ldap.config import LDAPSearch
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATE_DIR = os.path.join(BASE_DIR, "templates")
 
-AUTH_LDAP_SERVER_URI = "ldaps://kamrup-central.iitg.ernet.in:636"
+AUTH_LDAP_SERVER_URI = "ldaps://202.141.81.3:636"
 AUTH_LDAP_CONNECTION_OPTIONS = {
     ldap.OPT_REFERRALS: 0
 }
