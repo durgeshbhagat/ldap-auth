@@ -1,6 +1,25 @@
 from django.contrib.auth import login, authenticate
 from django.http import HttpResponse
 from django.shortcuts import render
+import ldap
+from django_auth_ldap.config import LDAPSearch
+
+
+AUTH_LDAP_SERVER_URI = "ldaps://202.141.81.3:636"
+AUTH_LDAP_CONNECTION_OPTIONS = {
+    ldap.OPT_REFERRALS: 0
+}
+
+AUTH_LDAP_BIND_DN = "swc"
+AUTH_LDAP_BIND_PASSWORD = "'India$Rising'"
+
+AUTHENTICATION_BACKENDS = [
+    'django_auth_ldap.backend.LDAPBackend',
+    # 'django.contrib.auth.backends.ModelBackend',
+]
+
+# Initiate TLS on connection.
+LDAP_AUTH_USE_TLS = False
 
 def user_login(request):
     if request.method == 'GET':
@@ -9,6 +28,13 @@ def user_login(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
+        AUTH_LDAP_USER_SEARCH = LDAPSearch("ou=stud-offices,ou=stud,dc=iitg,dc=ernet,dc=in",
+ldap.SCOPE_SUBTREE, "(uid=%(user)s)")
+
+        print(AUTH_LDAP_USER_SEARCH)
+         
+
+        """
         user = authenticate(username=username, password=password)
         if user is not None:
             if user.is_active:
@@ -19,4 +45,4 @@ def user_login(request):
         else:
             return HttpResponse("Invalid Login Credentials")
 
-
+        """
